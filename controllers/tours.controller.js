@@ -23,15 +23,15 @@ exports.getTourById = async (req, res) => {
             message: "id is not valid"
         })
 
+        console.log(id);
         const result = await Tour.findById(id);
-        const increaseView = await Tour.updateOne({ _id: id }, { $inc: { views: 1 } })
+        const increaseView = await Tour.updateOne({ _id: id }, { $inc: { views: 1 } });
 
         if (!result) return res.status(400).send({
             status: "failed",
             message: "No user Found"
         })
 
-        result.viewCount();
         res.status(200).send({
             status: "success",
             data: result
