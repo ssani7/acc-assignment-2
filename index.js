@@ -12,7 +12,11 @@ mongoose.connect(process.env.DATABASE_URL, {
 })
 
 
-app.use('/api/v1/tours', toursRouter)
+app.use('/api/v1/tours', toursRouter);
+
+app.get("*", (req, res) => {
+    res.send("Page not found");
+})
 
 app.listen(port, () => {
     console.log("Listening to port")

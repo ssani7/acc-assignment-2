@@ -28,7 +28,6 @@ exports.getAllTours = async (req, res) => {
 
         res.status(200).send({
             status: "success",
-            message: "Data inserted",
             data: result
         });
     } catch (error) {
